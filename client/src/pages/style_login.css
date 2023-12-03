@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.content-login{
+    background-color: #1D5C63;
+}
+
+.form-wrapper{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding:60px;
+    width: 430px;
+    border-radius: 4px;
+    background-color: #1A3C40;
+    transform: translate(-50%,-50%);
+}
+
+.form-wrapper h2 {
+    color: #EDE6DB;
+    font-size: 2rem;
+}
+.form-wrapper form {
+    margin: 25px 0 65px;
+}
+
+form .form-control{
+    position: relative;
+    height:50px;
+    margin-bottom: 16px;
+}
+.form-control input{
+    height: 100%;
+    width: 100%;
+    background-color: #417D7A;
+    color: #EDE6DB;
+    outline:none;
+    border: none;
+    font-size:1rem;
+    border-radius: 4px;
+    padding: 0 20px;
+    opacity: 0.5;
+}
+.form-control input:is(:focus,:valid) {
+    padding: 16px 20px 0;
+    opacity: 1;
+}
+
+
+.form-control label{
+    position:absolute;
+    left: 20px;
+    top:50%;
+    color: #EDE6DB;
+    opacity: 50%;
+    pointer-events: none;
+    font-size: 1rem;
+    transform: translateY(-50%);
+    transition: all 0.1s ease;
+}
+
+.form-control input:is(:focus,:valid) ~ label{
+    font-size: 0.75rem;
+    transform: translateY(-130%);
+}
+
+form button{
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    color: #EDE6DB;
+    background:  #1D5C63;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 500;
+    margin: 25px 0 10px;
+    opacity: 1;
+    transition: 0.1s ease;
+}
+
+form button:hover{
+    opacity: 0.5;
+}
+
+.form-wrapper :where(p,a) {
+    color: #EDE6DB;
+}
+.form-wrapper p a{
+    color: #fff;
+}
+.form-wrapper a{
+    text-decoration: none;
+}
+.form-wrapper a:hover{
+    text-decoration: underline;
+}

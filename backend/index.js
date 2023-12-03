@@ -111,6 +111,52 @@ app.delete("/vechicle/:id",(req,res)=>{
     })
 })
 
+app.get("/users/:id",(req,res)=>
+{
+    const email = req.params.id
+    const q = "SELECT * FROM users WHERE email= ?"
+    db.query(q,[email],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+
+})
+app.post("/users",(req,res)=>
+{
+    const q = "INSERT INTO users (`email`,`password`) VALUES (?)"
+    const values =[
+        req.body.email,
+        req.body.password
+    ]
+    db.query(q,[values],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("user inserted")
+    })
+
+})
+
+app.post("/booking",(req,res)=>{
+    const values = [
+        req.body.no_of_days,
+        req.body.no_of_rooms,
+        req.body.cust_id,
+        req.body.hotel_id
+    ]
+    const q1 = "INSERT INTO booking (`no_of_days`,`no_of_rooms`,`cust_id`,`hotel_id`) VALUES (?)"
+    db.query(q1,[values],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("Inserted booking")
+    })
+})
+app.get("/booking/:id",(req,res)=>{
+    const userID = req.params.id
+    const q1 = "SELECT * FROM booking WHERE cust_id =?"
+    db.query(q1,[userID],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+})
+
 
 
 app.listen(8800,()=>{

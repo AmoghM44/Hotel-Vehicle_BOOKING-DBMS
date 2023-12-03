@@ -20,7 +20,7 @@ export default function VechicleAdd() {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8800/vechicle/"+hotelID, vechicle);
-      navigate("/");
+      navigate("/admin");
     } catch (err) {
       console.log(err);
     }

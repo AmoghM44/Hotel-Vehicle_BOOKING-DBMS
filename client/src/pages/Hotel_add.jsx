@@ -13,14 +13,14 @@ export default function Hotel_add() {
   });
   const navigate = useNavigate();
   const handelChange = (e) => {
-    setHotel((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setHotel((prev) => ({ ...prev, [e.target.name]: e.target.value}));
   };
   const handelClick = async (e) => {
     e.preventDefault();
     console.log(hotel)
     try {
       await axios.post("http://localhost:8800/hotels", hotel);
-      navigate("/");
+      navigate("/admin");
     } catch (err) {
       console.log(err);
     }

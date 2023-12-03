@@ -23,7 +23,7 @@ export default function Hotel_update() {
     e.preventDefault();
     try {
       await axios.put("http://localhost:8800/hotels/" +bookID,hotel);
-      navigate("/");
+      navigate("/admin");
     } catch (err) {
       console.log(err);
     }
