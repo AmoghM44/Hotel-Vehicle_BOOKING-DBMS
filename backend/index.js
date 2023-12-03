@@ -5,7 +5,7 @@ import cors from "cors"
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"test",
+    password:"abhilashkateel#007",
     database:"hotel_react"
 })
 
@@ -55,7 +55,7 @@ app.delete("/hotels/:id",(req,res)=>{
 
     db.query(q,[hotelID],(err,data)=>{
         if(err) return res.json(err)
-        return res.json("book deleted succesfully")
+        return res.json("vechicle deleted succesfully")
     })
 })
 app.put("/hotels/:id",(req,res)=>{
@@ -70,7 +70,44 @@ app.put("/hotels/:id",(req,res)=>{
     ]
     db.query(q,[...values,hotelID],(err,data)=>{
         if(err) return res.json(err)
-        return res.json("book updated succesfully")
+        return res.json("vechicle updated succesfully")
+    })
+})
+
+
+app.get("/vechicle/:id",(req,res)=>{
+    const hotelID = req.params.id
+    const q = "SELECT * FROM vechicles where h_id = ?"
+    db.query(q,[hotelID],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data) 
+    })
+})
+
+app.post("/vechicle/:id",(req,res)=>{
+    const hotelID = req.params.id
+    const q = "INSERT INTO vechicles (v_name,v_type,v_cost,h_id) VALUES (?,?,?,?)"
+    console.log(req.body)
+    const values = [
+        req.body.v_name,
+        req.body.v_type,
+        req.body.v_cost,
+    ]
+    db.query(q,[...values,hotelID],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("vechicle inserted succesfully")
+
+    })
+
+})
+
+app.delete("/vechicle/:id",(req,res)=>{
+    const vechicleID = req.params.id
+    const q = "DELETE FROM vechicles WHERE id = ?"
+
+    db.query(q,[vechicleID],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("vechicle deleted succesfully")
     })
 })
 

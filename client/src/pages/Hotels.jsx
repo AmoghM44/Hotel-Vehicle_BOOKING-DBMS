@@ -51,6 +51,8 @@ export default function Hotels() {
             <p>Rooms Available: {hotel.hote_rooms_ava}</p>
             <button className="delete" onClick={()=>{handelDelete(hotel.id)}}>Delete</button>
             <button className="update"><Link to={`/update/${hotel.id}`}>Update</Link></button>
+            <button className="update"><Link to={`/vechicle_add/${hotel.id}`}>Add Vechicle</Link></button>
+            <button className="update"><Link to={`/vechicle/${hotel.id}`}>Show Vechicle</Link></button>
           </div>
         )
         )}
