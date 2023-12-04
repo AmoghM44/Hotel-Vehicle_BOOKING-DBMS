@@ -42,6 +42,7 @@ CREATE TABLE vechicles (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 #put this in triggers of hotels,byRight click on booking table,And click alter table,Then in bottom there is trigger,Click on after update,And add the code there,And apply.
+
 CREATE DEFINER=root@localhost TRIGGER update_rooms_ava AFTER INSERT ON booking FOR EACH ROW BEGIN
     UPDATE hotels
     SET hote_rooms_ava = hote_rooms_ava - NEW.no_of_rooms
