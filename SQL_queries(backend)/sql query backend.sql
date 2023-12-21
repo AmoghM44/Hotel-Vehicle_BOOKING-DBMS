@@ -1,7 +1,9 @@
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pw123';
+#run the above command to recheck pw problem if any
 use hotel_react;
 CREATE DATABASE hotel_react /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 use hotel_react;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pw123';
+
 CREATE TABLE booking (
   id int NOT NULL AUTO_INCREMENT,
   no_of_days int NOT NULL,
